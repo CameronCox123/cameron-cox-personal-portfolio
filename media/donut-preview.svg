@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" role="img" aria-labelledby="title description">
+  <title id="title">D.O.N.U.T. combat robot concept</title>
+  <desc id="description">An illustrated compact combat robot with a circular weapon and wheels.</desc>
+  <rect width="720" height="400" rx="28" fill="#171c2a"/>
+  <ellipse cx="360" cy="326" rx="214" ry="23" fill="#0d111b"/>
+  <g stroke="#f4a261" stroke-width="14" stroke-linejoin="round">
+    <path d="M183 275 208 193q14-46 60-46h187q44 0 65 34l48 94-27 37H205z" fill="#dd6b3f"/>
+    <path d="m222 189 42-49h171l38 49-41 24H250z" fill="#f3a55f"/>
+    <path d="M282 243h144" fill="none" stroke="#f6d7a8" stroke-width="10"/>
+  </g>
+  <g fill="#282d3c" stroke="#f6d7a8" stroke-width="10">
+    <circle cx="250" cy="300" r="36"/>
+    <circle cx="478" cy="300" r="36"/>
+  </g>
+  <path d="M408 138a80 80 0 0 1 124 29l-60 35-64-35z" fill="#f7c85f" stroke="#f4a261" stroke-width="10"/>
+  <circle cx="470" cy="181" r="14" fill="#171c2a"/>
+  <text x="360" y="376" fill="#f5f2eb" font-family="Arial,sans-serif" font-size="24" font-weight="700" letter-spacing="8" text-anchor="middle">D.O.N.U.T.</text>
+</svg>

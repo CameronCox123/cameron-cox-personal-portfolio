@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Cobot — Cameron Cox</title>
+  <meta name="description" content="Cobot collaborative robotics project by Cameron Cox.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="media/arm-icon.png" type="image/png">
+  <link rel="stylesheet" href="assets/style.css">
+  <script>try { document.documentElement.dataset.theme = localStorage.getItem('hf-theme') || 'dark' } catch (e) { document.documentElement.dataset.theme = 'dark' }</script>
+  <script src="assets/site.js" defer></script>
+</head>
+
+<body><a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="nav-wrap"><a class="brand" href="index.html"><img src="media/arm-icon.png" alt="" width="25"
+          height="25"><span>Cameron Cox<span class="brand-dot">.</span></span></a>
+      <nav aria-label="Main navigation"><a href="index.html#projects" aria-current="page">Work</a><a
+          href="about.html">About</a><a href="resume.html">Résumé</a></nav><button class="theme-toggle" id="themeToggle"
+        type="button" aria-label="Switch color theme"><span class="theme-icon" aria-hidden="true">◐</span><span
+          class="theme-label">Dark mode</span></button>
+    </div>
+  </header>
+  <main id="main">
+    <div class="project-intro">
+      <div class="page-heading"><a class="back-link" href="index.html#projects">← All projects</a>
+        <p class="eyebrow">Robotics · ECLAIR</p>
+        <h1>Cobot<span class="brand-dot">.</span></h1>
+        <p class="page-summary">A collaborative robotics project featuring object perception and manipulation.</p>
+      </div>
+      <figure class="project-cover"><img src="media/cobot.jpg" alt="Collaborative robot used for the Cobot project"
+          decoding="async"></figure>
+    </div>
+    <section class="project-section">
+      <div class="col">
+        <div class="panel project-panel">
+          <p class="project-context">Collaborative robotics · Robot arm · Object perception · Manipulation</p>
+          <div class="project-columns">
+            <div class="project-copy">
+              <div class="field">
+                <h4>The project</h4>
+                <p>Cobot is a collaborative robotics project. These examples show a robot-arm camera view with a
+                  prompted object and the corresponding segmentation mask.</p>
+              </div>
+            </div>
+            <div class="project-visuals">
+              <div class="field">
+                <h4>Project media</h4>
+                <p>The images compare segmentation results from large, medium, and tiny models. Each shows the input
+                  prompt and the selected mask with its score.</p>
+              </div>
+            </div>
+          </div>
+          <div class="project-gallery">
+            <figure class="project-media code-media">
+              <a href="media/cobot.jpg" target="_blank" rel="noopener">
+                <img src="media/cobot.jpg" alt="Collaborative robot used for the Cobot project" loading="lazy"
+                  decoding="async">
+              </a>
+              <figcaption>Collaborative robot platform</figcaption>
+            </figure>
+            <figure class="project-media code-media">
+              <a href="media/cobot-large-model-frame1.png" target="_blank" rel="noopener">
+                <img src="media/cobot-large-model-frame1.png" alt="Large-model object segmentation result, score 0.68"
+                  loading="lazy" decoding="async">
+              </a>
+              <figcaption>Large model · score 0.68</figcaption>
+            </figure>
+            <figure class="project-media code-media">
+              <a href="media/cobot-medium-model-frame.png" target="_blank" rel="noopener">
+                <img src="media/cobot-medium-model-frame.png" alt="Medium-model object segmentation result, score 0.55"
+                  loading="lazy" decoding="async">
+              </a>
+              <figcaption>Medium model · score 0.55</figcaption>
+            </figure>
+            <figure class="project-media code-media">
+              <a href="media/cobot-tiny-model-frame.png" target="_blank" rel="noopener">
+                <img src="media/cobot-tiny-model-frame.png" alt="Tiny-model object segmentation result, score 0.85"
+                  loading="lazy" decoding="async">
+              </a>
+              <figcaption>Tiny model · score 0.85</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+    <aside class="next-project"><span class="eyebrow">Keep exploring</span><a href="trace.html">T.R.A.C.E. <span
+          aria-hidden="true">→</span></a></aside>
+  </main>
+  <footer>
+    <div><a class="footer-name" href="index.html">Cameron Cox<span class="brand-dot">.</span></a>
+      <p>Robotics, AI, coffee.</p>
+    </div>
+    <div class="footer-links"><a href="mailto:campatcox@gmail.com">Email ↗</a><a
+        href="https://www.linkedin.com/in/cameron-cox-ut" target="_blank" rel="noopener">LinkedIn ↗</a><span>© <span
+          id="year"></span></span></div>
+  </footer>
+  <div class="toast" id="toast" role="status" hidden></div>
+</body>
+
+</html>

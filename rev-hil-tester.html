@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>REV HIL Tester — Cameron Cox</title>
+  <meta name="description" content="A 154-test hardware-in-the-loop system for REV Robotics' A301 motor.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="media/arm-icon.png" type="image/png">
+  <link rel="stylesheet" href="assets/style.css">
+  <script>try { document.documentElement.dataset.theme = localStorage.getItem('hf-theme') || 'dark' } catch (e) { document.documentElement.dataset.theme = 'dark' }</script>
+  <script src="assets/site.js" defer></script>
+</head>
+
+<body><a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="nav-wrap"><a class="brand" href="index.html"><img src="media/arm-icon.png" alt="" width="25"
+          height="25"><span>Cameron Cox<span class="brand-dot">.</span></span></a>
+      <nav aria-label="Main navigation"><a href="index.html#projects" aria-current="page">Work</a><a
+          href="about.html">About</a><a href="resume.html">Résumé</a></nav><button class="theme-toggle" id="themeToggle"
+        type="button" aria-label="Switch color theme"><span class="theme-icon" aria-hidden="true">◐</span><span
+          class="theme-label">Dark mode</span></button>
+    </div>
+  </header>
+  <main id="main">
+    <div class="project-intro">
+      <div class="page-heading"><a class="back-link" href="index.html#projects">← All projects</a>
+        <p class="eyebrow">Software · REV Robotics</p>
+        <h1>REV HIL Tester<span class="brand-dot">.</span></h1>
+        <p class="page-summary">A multithreaded 154-test hardware-in-the-loop system for the A301 motor.</p>
+      </div>
+      <figure class="project-cover"><img src="media/hil.jpg"
+          alt="REV A301 hardware-in-the-loop test equipment" decoding="async"></figure>
+    </div>
+    <section class="project-section">
+      <div class="col">
+        <div class="panel project-panel">
+          <p class="project-context">REV Robotics · Hardware-in-the-loop · Java · Python · GitHub Actions · Proxmox</p>
+          <div class="project-columns">
+            <div class="project-copy">
+              <div class="field">
+                <h4>The test system</h4>
+                <p>I designed a multithreaded 154-test hardware-in-the-loop tester for the REV Robotics A301 motor. The
+                  setup integrates three motors, a SystemCore, through-bore encoders, CAN encoder adapters, a power
+                  supply, and a MotionCore expansion board.</p>
+              </div>
+              <div class="field">
+                <h4>Automation and performance</h4>
+                <ul>
+                  <li>Built a GitHub Actions CI pipeline across three repositories using a self-hosted Proxmox virtual
+                    machine to compile, run, and report test results.</li>
+                  <li>Reduced memory-write time from 15 ms to 5 ms and cut test-suite runtime by one minute.</li>
+                  <li>Created a Java production-testing application for motor and servo controllers.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="project-visuals">
+              <figure class="project-media code-media">
+                <a href="media/hil-tester-diagram.svg" target="_blank" rel="noopener">
+                  <img src="media/hil-tester-diagram.svg" alt="REV A301 hardware-in-the-loop test setup diagram"
+                    loading="lazy" decoding="async">
+                </a>
+                <figcaption>System overview, based on the hardware described in my résumé</figcaption>
+              </figure>
+              <figure class="project-media code-media">
+                <a href="media/servo-tester.jpg" target="_blank" rel="noopener">
+                  <img src="media/servo-tester.jpg" alt="REV motor and servo controller production test setup"
+                    loading="lazy" decoding="async">
+                </a>
+                <figcaption>Production-testing setup for motor and servo controllers</figcaption>
+              </figure>
+              <figure class="project-media code-media">
+                <a href="media/a301-3.jpg" target="_blank" rel="noopener">
+                  <img src="media/a301-3.jpg" alt="REV A301 motor hardware test setup" loading="lazy"
+                    decoding="async">
+                </a>
+                <figcaption>A301 hardware under test</figcaption>
+              </figure>
+              <figure class="project-media code-media">
+                <a href="media/a301.jpg" target="_blank" rel="noopener">
+                  <img src="media/a301.jpg" alt="REV A301 motor hardware" loading="lazy" decoding="async">
+                </a>
+                <figcaption>A301 motor</figcaption>
+              </figure>
+              <figure class="project-media code-media">
+                <a href="media/a301-2.jpg" target="_blank" rel="noopener">
+                  <img src="media/a301-2.jpg" alt="REV A301 development hardware" loading="lazy" decoding="async">
+                </a>
+                <figcaption>A301 development hardware</figcaption>
+              </figure>
+              <figure class="project-media code-media">
+                <a href="media/a301-4.jpg" target="_blank" rel="noopener">
+                  <img src="media/a301-4.jpg" alt="REV A301 motor assembly" loading="lazy" decoding="async">
+                </a>
+                <figcaption>A301 motor assembly</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <aside class="next-project"><span class="eyebrow">Keep exploring</span><a href="dreamsiccle.html">DreamSiccle
+        <span aria-hidden="true">→</span></a></aside>
+  </main>
+  <footer>
+    <div><a class="footer-name" href="index.html">Cameron Cox<span class="brand-dot">.</span></a>
+      <p>Robotics, AI, coffee.</p>
+    </div>
+    <div class="footer-links"><a href="mailto:campatcox@gmail.com">Email ↗</a><a
+        href="https://www.linkedin.com/in/cameron-cox-ut" target="_blank" rel="noopener">LinkedIn ↗</a><span>© <span
+          id="year"></span></span></div>
+  </footer>
+  <div class="toast" id="toast" role="status" hidden></div>
+</body>
+
+</html>

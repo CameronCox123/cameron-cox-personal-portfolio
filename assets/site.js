@@ -1,19 +1,15 @@
 (function () {
   'use strict';
   const root = document.documentElement;
-  const mq = window.matchMedia('(prefers-color-scheme: dark)');
   const button = document.getElementById('themeToggle');
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let explicitTheme = false;
-  try { explicitTheme = !!localStorage.getItem('hf-theme'); } catch (e) { }
   function applyTheme(theme) {
     root.dataset.theme = theme;
     const dark = theme === 'dark';
     if (button) { button.querySelector('.theme-label').textContent = dark ? 'Light mode' : 'Dark mode'; button.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode'); }
   }
-  applyTheme(root.dataset.theme || (mq.matches ? 'dark' : 'light'));
-  if (button) button.addEventListener('click', () => { const next = root.dataset.theme === 'dark' ? 'light' : 'dark'; explicitTheme = true; try { localStorage.setItem('hf-theme', next); } catch (e) { } applyTheme(next); });
-  mq.addEventListener('change', e => { if (!explicitTheme) applyTheme(e.matches ? 'dark' : 'light'); });
+  applyTheme(root.dataset.theme || 'dark');
+  if (button) button.addEventListener('click', () => { const next = root.dataset.theme === 'dark' ? 'light' : 'dark'; try { localStorage.setItem('hf-theme', next); } catch (e) { } applyTheme(next); });
   document.getElementById('year').textContent = new Date().getFullYear();
   const name = document.getElementById('heroNameText'), caret = document.getElementById('heroCaret');
   if (name && caret) {
@@ -34,7 +30,19 @@
     }
   });
   const filters = [...document.querySelectorAll('[data-filter]')], cards = [...document.querySelectorAll('.project-card')];
-  filters.forEach(filter => filter.addEventListener('click', () => { const value = filter.dataset.filter; filters.forEach(b => b.setAttribute('aria-pressed', String(b === filter))); cards.forEach(c => c.hidden = value !== 'all' && c.dataset.category !== value); const count = cards.filter(c => !c.hidden).length; document.querySelector('.filter-status').textContent = `Showing ${count} ${value === 'all' ? '' : filter.textContent + ' '}project${count === 1 ? '' : 's'}.`; }));
+    filters.forEach(filter => filter.addEventListener('click', () => { 
+      const value = filter.dataset.filter; 
+      filters.forEach(b => b.setAttribute('aria-pressed', String(b === filter))); 
+      
+      cards.forEach(c => {
+        // Split by commas or spaces to handle multi-category strings cleanly
+        const categories = c.dataset.category.split(/[\s,]+/).map(cat => cat.trim());
+        c.hidden = value !== 'all' && !categories.includes(value);
+      }); 
+
+      const count = cards.filter(c => !c.hidden).length; 
+      document.querySelector('.filter-status').textContent = `Showing ${count} ${value === 'all' ? '' : filter.textContent + ' '}project${count === 1 ? '' : 's'}.`; 
+    }));
   document.querySelectorAll('.headshot img').forEach(img => { function hideMissing() { img.hidden = true; } img.addEventListener('error', hideMissing); if (img.complete && img.naturalWidth === 0) hideMissing(); });
   document.querySelectorAll('.project-media video').forEach(video => {
     const message = video.closest('.project-media').querySelector('.media-error'); if (!message) return;

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>GPongT — Cameron Cox</title>
+  <meta name="description" content="GPongT, an AI-powered Pong game built for HackTX 2024.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="media/arm-icon.png" type="image/png">
+  <link rel="stylesheet" href="assets/style.css">
+  <script>try { document.documentElement.dataset.theme = localStorage.getItem('hf-theme') || 'dark' } catch (e) { document.documentElement.dataset.theme = 'dark' }</script>
+  <script src="assets/site.js" defer></script>
+</head>
+
+<body><a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="nav-wrap"><a class="brand" href="index.html"><img src="media/arm-icon.png" alt="" width="25"
+          height="25"><span>Cameron Cox<span class="brand-dot">.</span></span></a>
+      <nav aria-label="Main navigation"><a href="index.html#projects" aria-current="page">Work</a><a
+          href="about.html">About</a><a href="resume.html">Résumé</a></nav><button class="theme-toggle" id="themeToggle"
+        type="button" aria-label="Switch color theme"><span class="theme-icon" aria-hidden="true">◐</span><span
+          class="theme-label">Dark mode</span></button>
+    </div>
+  </header>
+  <main id="main">
+    <div class="project-intro">
+      <div class="page-heading"><a class="back-link" href="index.html#projects">← All projects</a>
+        <p class="eyebrow">AI · HackTX '24</p>
+        <h1>GPongT<span class="brand-dot">.</span></h1>
+        <p class="page-summary">An AI-powered Pong game that generates new levels and challenges at runtime.</p>
+      </div>
+      <figure class="project-cover"><img src="media/GPongT.jpg" alt="GPongT game screenshot" decoding="async">
+      </figure>
+    </div>
+    <section class="project-section">
+      <div class="col">
+        <div class="panel project-panel">
+          <p class="project-context">AI-assisted code generation · Pong · Runtime feature generation · HackTX 2024</p>
+          <div class="project-columns">
+            <div class="project-copy">
+              <div class="field">
+                <h4>The project</h4>
+                <p>GPongT combines a Pong game with an AI-based code-generation system. The system analyzes a codebase
+                  and generates supporting features at runtime; in GPongT, it creates new game levels and challenges.</p>
+                <p>The project won first place for “Best AI Hack” at HackTX 2024, among 5,000 participants.</p>
+              </div>
+            </div>
+            <div class="project-visuals">
+              <div class="field">
+                <h4>My contribution</h4>
+                <p>I designed the code-generation architecture and integrated it into the game so generated level
+                  features could run in a subprocess thread.</p>
+              </div>
+            </div>
+          </div>
+          <div class="project-gallery">
+            <figure class="project-media code-media">
+              <a href="media/gpongt-instagram-pic.jpg" target="_blank" rel="noopener">
+                <img src="media/gpongt-instagram-pic.jpg" alt="GPongT team receiving the Best AI award at HackTX 2024"
+                  loading="lazy" decoding="async">
+              </a>
+              <figcaption>Best AI award at HackTX 2024</figcaption>
+            </figure>
+            <figure class="project-media code-media">
+              <a href="media/GPongT-Award1.JPG" target="_blank" rel="noopener">
+                <img src="media/GPongT-Award1.JPG" alt="GPongT team receiving recognition at HackTX"
+                  loading="lazy" decoding="async">
+              </a>
+              <figcaption>GPongT at HackTX</figcaption>
+            </figure>
+            <figure class="project-media code-media">
+              <a href="media/GPongT-Award2.JPG" target="_blank" rel="noopener">
+                <img src="media/GPongT-Award2.JPG" alt="GPongT team with its HackTX award"
+                  loading="lazy" decoding="async">
+              </a>
+              <figcaption>HackTX award</figcaption>
+            </figure>
+            <figure class="project-media code-media">
+              <a href="media/GPongT-Award3.JPG" target="_blank" rel="noopener">
+                <img src="media/GPongT-Award3.JPG" alt="GPongT team celebrating its award"
+                  loading="lazy" decoding="async">
+              </a>
+              <figcaption>Team celebration</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+    <aside class="next-project"><span class="eyebrow">Keep exploring</span><a href="cobot.html">Cobot <span
+          aria-hidden="true">→</span></a></aside>
+  </main>
+  <footer>
+    <div><a class="footer-name" href="index.html">Cameron Cox<span class="brand-dot">.</span></a>
+      <p>Robotics, AI, coffee.</p>
+    </div>
+    <div class="footer-links"><a href="mailto:campatcox@gmail.com">Email ↗</a><a
+        href="https://www.linkedin.com/in/cameron-cox-ut" target="_blank" rel="noopener">LinkedIn ↗</a><span>© <span
+          id="year"></span></span></div>
+  </footer>
+  <div class="toast" id="toast" role="status" hidden></div>
+</body>
+
+</html>

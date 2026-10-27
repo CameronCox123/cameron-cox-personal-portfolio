@@ -8,13 +8,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="media/arm-icon.png" type="image/png">
   <link rel="stylesheet" href="assets/style.css">
-  <script>try { document.documentElement.dataset.theme = localStorage.getItem('hf-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') } catch (e) { document.documentElement.dataset.theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light' }</script>
+  <script>try { document.documentElement.dataset.theme = localStorage.getItem('hf-theme') || 'dark' } catch (e) { document.documentElement.dataset.theme = 'dark' }</script>
   <script src="assets/site.js" defer></script>
 </head>
 
 <body><a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
-    <div class="nav-wrap"><a class="brand" href="index.html"><img src="media/joystick-icon.png" alt="" width="25"
+    <div class="nav-wrap"><a class="brand" href="index.html"><img src="media/arm-icon.png" alt="" width="25"
           height="25" onerror="this.hidden=true"><span>Cameron Cox<span class="brand-dot">.</span></span></a>
       <nav aria-label="Main navigation"><a href="index.html#projects">Work</a><a href="about.html">About</a><a
           href="resume.html" aria-current="page">Résumé</a></nav><button class="theme-toggle" id="themeToggle"

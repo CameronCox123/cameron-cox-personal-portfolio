@@ -1,144 +1,268 @@
-<!DOCTYPE html><html lang="en"><head><title>Smaller Unreal Projects — Harrison Floyd</title><meta name="description" content="Smaller Unreal Projects. Game development, robotics, and cloud systems by Harrison Floyd."><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="media/joystick-icon.png" type="image/png"><link rel="stylesheet" href="assets/style.css"><script>try{document.documentElement.dataset.theme=localStorage.getItem('hf-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch(e){document.documentElement.dataset.theme=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}</script><script src="assets/site.js" defer></script></head><body><a class="skip-link" href="#main">Skip to content</a><header class="site-header"><div class="nav-wrap"><a class="brand" href="index.html"><img src="media/joystick-icon.png" alt="" width="25" height="25" onerror="this.hidden=true"><span>Harrison Floyd<span class="brand-dot">.</span></span></a><nav aria-label="Main navigation"><a href="index.html#projects" aria-current="page">Work</a><a href="about.html">About</a><a href="resume.html">Résumé</a></nav><button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch color theme"><span class="theme-icon" aria-hidden="true">◐</span><span class="theme-label">Dark mode</span></button></div></header><main id="main"><div class="page-heading"><a class="back-link" href="index.html#projects">← All projects</a><p class="eyebrow">Unreal Engine · Experiments</p><h1>Smaller Unreal Projects<span class="brand-dot">.</span></h1><p class="page-summary">Momentum-based combat, collaborative AI, and networked hordes.</p><nav class="project-jumps" aria-label="Projects on this page"><a href="#unreal-0">Ninja Night ↓</a><a href="#unreal-1">AI and Networking Horde Shooter ↓</a></nav></div><section class="project-section" id="smaller-unreal-projects-content"><div class="col"><div class="panel project-panel" id="unreal-0">
-        <div class="panel-head">
-          <h3>Ninja Night</h3>
-          <span class="sheet">Level 02</span>
-        </div>
-        <p class="project-context">Unreal Engine 5 · C++ &amp; Blueprints · Movement systems · Wall running · Collaborative AI</p>
-        <div class="project-columns"><div class="project-copy"><div class="field">
-          <h4>The game</h4>
-          <ul>
-            <li>This is the first project in Unreal I created without any restrictions or basic requirements. My team and I decided we wanted to create a momentum-based action game.</li>
-            <li>The player's objective is to kill every enemy by using various weapons scattered around the room, while the enemies use a collaborative AI system to decide the individual actions that would most benefit the group.</li>
-          </ul>
-        </div>
-        <div class="field">
-          <h4>Interesting features</h4>
-          <ul>
-            <li>An omnidirectional movement system including increasing velocity, air jumps, wall jumping, and wall running</li>
-            <li>System of weapons the player and enemies can equip, swing, and throw</li>
-            <li>Collaborative AI that recognizes the player's and other AI's status to determine the best action for the group of enemies to beat the player</li>
-          </ul>
-        </div>
-        </div><div class="project-visuals"><figure class="project-media">
-          <video id="ninjaNightVideo" controls playsinline preload="metadata" src="media/Ninja-Night-Combat-Fast.mp4" aria-label="Ninja Night combat demo" aria-describedby="ninjaNightCaption">
-            Your browser does not support embedded video.
-          </video>
-          <figcaption id="ninjaNightCaption">Fig. 1 — Tech demo trailer, combat system footage</figcaption>
-          <p class="media-link"><a href="media/Ninja-Night-Combat-Fast.mp4" target="_blank" rel="noopener">Open video directly</a></p>
-          <p id="ninjaNightError" class="media-error" role="status" hidden></p>
-        </figure>
-        </div></div><details class="project-details"><summary>Wall-running implementation and technical takeaways</summary><div class="project-details-body"><div class="project-columns"><div class="project-copy"><div class="field">
-          <h4>Main takeaways</h4>
-          <ul>
-            <li>Prototyping gameplay systems and player movement packages in Unreal's Blueprint and moving that prototype into Unreal C++</li>
-            <li>Using wall collisions and surface normals to implement movement</li>
-            <li>Prototyping, playtesting, and updating gameplay systems in response to player feedback</li>
-            <li>Creating a functional gameplay loop including a main menu for a proper build</li>
-            <li>Creating a build for an Unreal project for multiple operating systems</li>
-          </ul>
-        </div>
-        <div class="field">
-          <h4>My implementation — wall running</h4>
-          <p>These code screenshots show the wall-run start checks and the logic I implemented to execute the movement.</p>
-        </div>
-        </div><div class="project-visuals"><div class="project-gallery"><figure class="project-media code-media">
-          <a href="media/wall_run_start_code.png" target="_blank" rel="noopener" aria-label="View ninja night code implementing the checks for starting a wall run at full size">
-            <img src="media/wall_run_start_code.png" alt="Ninja Night code implementing the checks for starting a wall run" loading="lazy" decoding="async">
-          </a>
-          <figcaption>Fig. 2 — Wall-run start checks</figcaption>
-          <p class="media-link"><a href="media/wall_run_start_code.png" target="_blank" rel="noopener">View full-size image</a></p>
-        </figure>
-        <figure class="project-media code-media">
-          <a href="media/wall_run_run_code.png" target="_blank" rel="noopener" aria-label="View ninja night code implementing wall-run movement execution at full size">
-            <img src="media/wall_run_run_code.png" alt="Ninja Night code implementing wall-run movement execution" loading="lazy" decoding="async">
-          </a>
-          <figcaption>Fig. 3 — Wall-run execution</figcaption>
-          <p class="media-link"><a href="media/wall_run_run_code.png" target="_blank" rel="noopener">View full-size image</a></p>
-        </figure>
-      </div></div></div></div></details></div>
+<!DOCTYPE html>
+<html lang="en">
 
-      <div class="panel project-panel" id="unreal-1">
-        <div class="panel-head">
-          <h3>AI and Networking Horde Shooter</h3>
-          <span class="sheet">Level 03</span>
-        </div>
-        <p class="project-context">Unreal Engine 5 · C++ &amp; Blueprints · Multiplayer networking · Swarm AI · Animation state machines</p>
-        <div class="project-columns"><div class="project-copy"><div class="field">
-          <h4>The game</h4>
-          <ul>
-            <li>For this project we wanted to create the ultimate AI swarm networking experience, and nothing brings swarm AI and networking together like a horde shooter.</li>
-            <li>Taking inspiration from the likes of Left 4 Dead and Black Ops Zombies, we created a hunting, swarming AI capable of communicating with other AI agents, alongside networking features and third-person shooter game elements.</li>
-          </ul>
-        </div>
-        <div class="field">
-          <h4>Interesting features</h4>
-          <ul>
-            <li>AI swarming logic, player audio and visual recognition, and AI agent communication</li>
-            <li>AI spawners to create increasingly larger hordes of enemies in a spread area</li>
-            <li>Advanced animation trees to support animations in all states with and without various weapons</li>
-            <li>Networking support for up to 4 players</li>
-          </ul>
-        </div>
-        </div><div class="project-visuals"><figure class="project-media">
-          <video id="hordeShooterVideo" controls playsinline preload="metadata" src="media/horde_demo.mp4" aria-label="AI and Networking Horde Shooter demo" aria-describedby="hordeShooterCaption">
-            Your browser does not support embedded video.
-          </video>
-          <figcaption id="hordeShooterCaption">Fig. 1 — Tech showcase: networking, swarming AI, and weapons</figcaption>
-          <p class="media-link"><a href="media/horde_demo.mp4" target="_blank" rel="noopener">Open video directly</a></p>
-          <p class="media-error" role="status" hidden></p>
-        </figure>
-        </div></div><details class="project-details"><summary>Animation system and technical takeaways</summary><div class="project-details-body"><div class="field">
-          <h4>Main takeaways</h4>
-          <ul>
-            <li>Creating, texturing, and remapping resources (guns in this case) the player can equip and interact with</li>
-            <li>Advanced animation tree structure relying on multiple layers of state machines</li>
-            <li>Mapping items to player skeleton rigs to create smooth animations</li>
-            <li>Basic networking structure and syncing</li>
-            <li>Advanced AI features via C++ to maintain performance</li>
-          </ul>
-        </div>
-        <div class="field">
-          <h4>Animation system</h4>
-          <p>Each screenshot zooms into a node of the one before it: the overall tree, then the forward-walk state, the walk transition inside it, and finally the unarmed-to-rifle branch inside that. Click any image for full size.</p>
-        </div>
-        <div class="flow" role="group" aria-label="Animation graphs, each nested inside the previous one">
-          <figure class="flow-step">
-            <a href="media/horde_animation_tree.png" target="_blank" rel="noopener" aria-label="View horde shooter animation tree overview at full size">
-              <img src="media/horde_animation_tree.png" alt="Horde Shooter animation tree overview" loading="lazy" decoding="async">
-            </a>
-            <figcaption>Fig. 2 — Animation tree overview</figcaption>
-            <p class="media-link"><a href="media/horde_animation_tree.png" target="_blank" rel="noopener">View full-size image</a></p>
-          </figure>
+<head>
+  <title>Smaller Unreal Projects — Cameron Cox</title>
+  <meta name="description"
+    content="Smaller Unreal Projects. Game development, robotics, and cloud systems by Cameron Cox.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="media/joystick-icon.png" type="image/png">
+  <link rel="stylesheet" href="assets/style.css">
+  <script>try { document.documentElement.dataset.theme = localStorage.getItem('hf-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') } catch (e) { document.documentElement.dataset.theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light' }</script>
+  <script src="assets/site.js" defer></script>
+</head>
 
-          <div class="flow-arrow" aria-hidden="true"><span class="glyph">→</span><span>zoom in</span></div>
-
-          <figure class="flow-step">
-            <a href="media/forward_walk.png" target="_blank" rel="noopener" aria-label="View horde shooter forward-walk animation logic at full size">
-              <img src="media/forward_walk.png" alt="Horde Shooter forward-walk animation logic" loading="lazy" decoding="async">
-            </a>
-            <figcaption>Fig. 3 — Forward-walk animation logic</figcaption>
-            <p class="media-link"><a href="media/forward_walk.png" target="_blank" rel="noopener">View full-size image</a></p>
-          </figure>
-
-          <div class="flow-arrow" aria-hidden="true"><span class="glyph">→</span><span>zoom in</span></div>
-
-          <figure class="flow-step">
-            <a href="media/walk_transition.png" target="_blank" rel="noopener" aria-label="View horde shooter walk-transition logic at full size">
-              <img src="media/walk_transition.png" alt="Horde Shooter walk-transition logic, found inside the forward-walk logic" loading="lazy" decoding="async">
-            </a>
-            <figcaption>Fig. 4 — Walk-transition logic (inside Fig. 3)</figcaption>
-            <p class="media-link"><a href="media/walk_transition.png" target="_blank" rel="noopener">View full-size image</a></p>
-          </figure>
-
-          <div class="flow-arrow" aria-hidden="true"><span class="glyph">→</span><span>zoom in</span></div>
-
-          <figure class="flow-step">
-            <a href="media/unarmed_to_rifle_branch.png" target="_blank" rel="noopener" aria-label="View horde shooter animation branch for the transition from unarmed to rifle at full size">
-              <img src="media/unarmed_to_rifle_branch.png" alt="Horde Shooter unarmed-to-rifle animation branch, found inside the walk-transition logic" loading="lazy" decoding="async">
-            </a>
-            <figcaption>Fig. 5 — Unarmed-to-rifle branch (inside Fig. 4)</figcaption>
-            <p class="media-link"><a href="media/unarmed_to_rifle_branch.png" target="_blank" rel="noopener">View full-size image</a></p>
-          </figure>
+<body><a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="nav-wrap"><a class="brand" href="index.html"><img src="media/joystick-icon.png" alt="" width="25"
+          height="25" onerror="this.hidden=true"><span>Cameron Cox<span class="brand-dot">.</span></span></a>
+      <nav aria-label="Main navigation"><a href="index.html#projects" aria-current="page">Work</a><a
+          href="about.html">About</a><a href="resume.html">Résumé</a></nav><button class="theme-toggle" id="themeToggle"
+        type="button" aria-label="Switch color theme"><span class="theme-icon" aria-hidden="true">◐</span><span
+          class="theme-label">Dark mode</span></button>
+    </div>
+  </header>
+  <main id="main">
+    <div class="page-heading"><a class="back-link" href="index.html#projects">← All projects</a>
+      <p class="eyebrow">Unreal Engine · Experiments</p>
+      <h1>Smaller Unreal Projects<span class="brand-dot">.</span></h1>
+      <p class="page-summary">Momentum-based combat, collaborative AI, and networked hordes.</p>
+      <nav class="project-jumps" aria-label="Projects on this page"><a href="#unreal-0">Ninja Night ↓</a><a
+          href="#unreal-1">AI and Networking Horde Shooter ↓</a></nav>
+    </div>
+    <section class="project-section" id="smaller-unreal-projects-content">
+      <div class="col">
+        <div class="panel project-panel" id="unreal-0">
+          <div class="panel-head">
+            <h3>Ninja Night</h3>
+            <span class="sheet">Level 02</span>
+          </div>
+          <p class="project-context">Unreal Engine 5 · C++ &amp; Blueprints · Movement systems · Wall running ·
+            Collaborative AI</p>
+          <div class="project-columns">
+            <div class="project-copy">
+              <div class="field">
+                <h4>The game</h4>
+                <ul>
+                  <li>This is the first project in Unreal I created without any restrictions or basic requirements. My
+                    team and I decided we wanted to create a momentum-based action game.</li>
+                  <li>The player's objective is to kill every enemy by using various weapons scattered around the room,
+                    while the enemies use a collaborative AI system to decide the individual actions that would most
+                    benefit the group.</li>
+                </ul>
+              </div>
+              <div class="field">
+                <h4>Interesting features</h4>
+                <ul>
+                  <li>An omnidirectional movement system including increasing velocity, air jumps, wall jumping, and
+                    wall running</li>
+                  <li>System of weapons the player and enemies can equip, swing, and throw</li>
+                  <li>Collaborative AI that recognizes the player's and other AI's status to determine the best action
+                    for the group of enemies to beat the player</li>
+                </ul>
+              </div>
+            </div>
+            <div class="project-visuals">
+              <figure class="project-media">
+                <video id="ninjaNightVideo" controls playsinline preload="metadata"
+                  src="media/Ninja-Night-Combat-Fast.mp4" aria-label="Ninja Night combat demo"
+                  aria-describedby="ninjaNightCaption">
+                  Your browser does not support embedded video.
+                </video>
+                <figcaption id="ninjaNightCaption">Fig. 1 — Tech demo trailer, combat system footage</figcaption>
+                <p class="media-link"><a href="media/Ninja-Night-Combat-Fast.mp4" target="_blank" rel="noopener">Open
+                    video directly</a></p>
+                <p id="ninjaNightError" class="media-error" role="status" hidden></p>
+              </figure>
+            </div>
+          </div>
+          <details class="project-details">
+            <summary>Wall-running implementation and technical takeaways</summary>
+            <div class="project-details-body">
+              <div class="project-columns">
+                <div class="project-copy">
+                  <div class="field">
+                    <h4>Main takeaways</h4>
+                    <ul>
+                      <li>Prototyping gameplay systems and player movement packages in Unreal's Blueprint and moving
+                        that prototype into Unreal C++</li>
+                      <li>Using wall collisions and surface normals to implement movement</li>
+                      <li>Prototyping, playtesting, and updating gameplay systems in response to player feedback</li>
+                      <li>Creating a functional gameplay loop including a main menu for a proper build</li>
+                      <li>Creating a build for an Unreal project for multiple operating systems</li>
+                    </ul>
+                  </div>
+                  <div class="field">
+                    <h4>My implementation — wall running</h4>
+                    <p>These code screenshots show the wall-run start checks and the logic I implemented to execute the
+                      movement.</p>
+                  </div>
+                </div>
+                <div class="project-visuals">
+                  <div class="project-gallery">
+                    <figure class="project-media code-media">
+                      <a href="media/wall_run_start_code.png" target="_blank" rel="noopener"
+                        aria-label="View ninja night code implementing the checks for starting a wall run at full size">
+                        <img src="media/wall_run_start_code.png"
+                          alt="Ninja Night code implementing the checks for starting a wall run" loading="lazy"
+                          decoding="async">
+                      </a>
+                      <figcaption>Fig. 2 — Wall-run start checks</figcaption>
+                      <p class="media-link"><a href="media/wall_run_start_code.png" target="_blank" rel="noopener">View
+                          full-size image</a></p>
+                    </figure>
+                    <figure class="project-media code-media">
+                      <a href="media/wall_run_run_code.png" target="_blank" rel="noopener"
+                        aria-label="View ninja night code implementing wall-run movement execution at full size">
+                        <img src="media/wall_run_run_code.png"
+                          alt="Ninja Night code implementing wall-run movement execution" loading="lazy"
+                          decoding="async">
+                      </a>
+                      <figcaption>Fig. 3 — Wall-run execution</figcaption>
+                      <p class="media-link"><a href="media/wall_run_run_code.png" target="_blank" rel="noopener">View
+                          full-size image</a></p>
+                    </figure>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </details>
         </div>
-      </div></details></div>
-    </div></section><aside class="next-project"><span class="eyebrow">Keep exploring</span><a href="aws-infrastructure.html">AWS Infrastructure <span aria-hidden="true">→</span></a></aside></main><footer><div><a class="footer-name" href="index.html">Harrison Floyd<span class="brand-dot">.</span></a><p>Games, systems, and things that move.</p></div><div class="footer-links"><a href="mailto:harrisonfloyd05@gmail.com">Email ↗</a><a href="https://www.linkedin.com/in/hfloyd" target="_blank" rel="noopener">LinkedIn ↗</a><span>© <span id="year"></span></span></div></footer><div class="toast" id="toast" role="status" hidden></div></body></html>
+
+        <div class="panel project-panel" id="unreal-1">
+          <div class="panel-head">
+            <h3>AI and Networking Horde Shooter</h3>
+            <span class="sheet">Level 03</span>
+          </div>
+          <p class="project-context">Unreal Engine 5 · C++ &amp; Blueprints · Multiplayer networking · Swarm AI ·
+            Animation state machines</p>
+          <div class="project-columns">
+            <div class="project-copy">
+              <div class="field">
+                <h4>The game</h4>
+                <ul>
+                  <li>For this project we wanted to create the ultimate AI swarm networking experience, and nothing
+                    brings swarm AI and networking together like a horde shooter.</li>
+                  <li>Taking inspiration from the likes of Left 4 Dead and Black Ops Zombies, we created a hunting,
+                    swarming AI capable of communicating with other AI agents, alongside networking features and
+                    third-person shooter game elements.</li>
+                </ul>
+              </div>
+              <div class="field">
+                <h4>Interesting features</h4>
+                <ul>
+                  <li>AI swarming logic, player audio and visual recognition, and AI agent communication</li>
+                  <li>AI spawners to create increasingly larger hordes of enemies in a spread area</li>
+                  <li>Advanced animation trees to support animations in all states with and without various weapons</li>
+                  <li>Networking support for up to 4 players</li>
+                </ul>
+              </div>
+            </div>
+            <div class="project-visuals">
+              <figure class="project-media">
+                <video id="hordeShooterVideo" controls playsinline preload="metadata" src="media/horde_demo.mp4"
+                  aria-label="AI and Networking Horde Shooter demo" aria-describedby="hordeShooterCaption">
+                  Your browser does not support embedded video.
+                </video>
+                <figcaption id="hordeShooterCaption">Fig. 1 — Tech showcase: networking, swarming AI, and weapons
+                </figcaption>
+                <p class="media-link"><a href="media/horde_demo.mp4" target="_blank" rel="noopener">Open video
+                    directly</a></p>
+                <p class="media-error" role="status" hidden></p>
+              </figure>
+            </div>
+          </div>
+          <details class="project-details">
+            <summary>Animation system and technical takeaways</summary>
+            <div class="project-details-body">
+              <div class="field">
+                <h4>Main takeaways</h4>
+                <ul>
+                  <li>Creating, texturing, and remapping resources (guns in this case) the player can equip and interact
+                    with</li>
+                  <li>Advanced animation tree structure relying on multiple layers of state machines</li>
+                  <li>Mapping items to player skeleton rigs to create smooth animations</li>
+                  <li>Basic networking structure and syncing</li>
+                  <li>Advanced AI features via C++ to maintain performance</li>
+                </ul>
+              </div>
+              <div class="field">
+                <h4>Animation system</h4>
+                <p>Each screenshot zooms into a node of the one before it: the overall tree, then the forward-walk
+                  state, the walk transition inside it, and finally the unarmed-to-rifle branch inside that. Click any
+                  image for full size.</p>
+              </div>
+              <div class="flow" role="group" aria-label="Animation graphs, each nested inside the previous one">
+                <figure class="flow-step">
+                  <a href="media/horde_animation_tree.png" target="_blank" rel="noopener"
+                    aria-label="View horde shooter animation tree overview at full size">
+                    <img src="media/horde_animation_tree.png" alt="Horde Shooter animation tree overview" loading="lazy"
+                      decoding="async">
+                  </a>
+                  <figcaption>Fig. 2 — Animation tree overview</figcaption>
+                  <p class="media-link"><a href="media/horde_animation_tree.png" target="_blank" rel="noopener">View
+                      full-size image</a></p>
+                </figure>
+
+                <div class="flow-arrow" aria-hidden="true"><span class="glyph">→</span><span>zoom in</span></div>
+
+                <figure class="flow-step">
+                  <a href="media/forward_walk.png" target="_blank" rel="noopener"
+                    aria-label="View horde shooter forward-walk animation logic at full size">
+                    <img src="media/forward_walk.png" alt="Horde Shooter forward-walk animation logic" loading="lazy"
+                      decoding="async">
+                  </a>
+                  <figcaption>Fig. 3 — Forward-walk animation logic</figcaption>
+                  <p class="media-link"><a href="media/forward_walk.png" target="_blank" rel="noopener">View full-size
+                      image</a></p>
+                </figure>
+
+                <div class="flow-arrow" aria-hidden="true"><span class="glyph">→</span><span>zoom in</span></div>
+
+                <figure class="flow-step">
+                  <a href="media/walk_transition.png" target="_blank" rel="noopener"
+                    aria-label="View horde shooter walk-transition logic at full size">
+                    <img src="media/walk_transition.png"
+                      alt="Horde Shooter walk-transition logic, found inside the forward-walk logic" loading="lazy"
+                      decoding="async">
+                  </a>
+                  <figcaption>Fig. 4 — Walk-transition logic (inside Fig. 3)</figcaption>
+                  <p class="media-link"><a href="media/walk_transition.png" target="_blank" rel="noopener">View
+                      full-size image</a></p>
+                </figure>
+
+                <div class="flow-arrow" aria-hidden="true"><span class="glyph">→</span><span>zoom in</span></div>
+
+                <figure class="flow-step">
+                  <a href="media/unarmed_to_rifle_branch.png" target="_blank" rel="noopener"
+                    aria-label="View horde shooter animation branch for the transition from unarmed to rifle at full size">
+                    <img src="media/unarmed_to_rifle_branch.png"
+                      alt="Horde Shooter unarmed-to-rifle animation branch, found inside the walk-transition logic"
+                      loading="lazy" decoding="async">
+                  </a>
+                  <figcaption>Fig. 5 — Unarmed-to-rifle branch (inside Fig. 4)</figcaption>
+                  <p class="media-link"><a href="media/unarmed_to_rifle_branch.png" target="_blank" rel="noopener">View
+                      full-size image</a></p>
+                </figure>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+    <aside class="next-project"><span class="eyebrow">Keep exploring</span><a href="aws-infrastructure.html">AWS
+        Infrastructure <span aria-hidden="true">→</span></a></aside>
+  </main>
+  <footer>
+    <div><a class="footer-name" href="index.html">Cameron Cox<span class="brand-dot">.</span></a>
+      <p>Games, systems, and things that move.</p>
+    </div>
+    <div class="footer-links"><a href="mailto:campatcox@gmail.com">Email ↗</a><a
+        href="https://www.linkedin.com/in/cameron-cox-ut" target="_blank" rel="noopener">LinkedIn ↗</a><span>© <span
+          id="year"></span></span></div>
+  </footer>
+  <div class="toast" id="toast" role="status" hidden></div>
+</body>
+
+</html>

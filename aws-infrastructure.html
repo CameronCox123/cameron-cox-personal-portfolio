@@ -1,60 +1,145 @@
-<!DOCTYPE html><html lang="en"><head><title>AWS Infrastructure — Harrison Floyd</title><meta name="description" content="AWS Infrastructure. Game development, robotics, and cloud systems by Harrison Floyd."><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="media/joystick-icon.png" type="image/png"><link rel="stylesheet" href="assets/style.css"><script>try{document.documentElement.dataset.theme=localStorage.getItem('hf-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch(e){document.documentElement.dataset.theme=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}</script><script src="assets/site.js" defer></script></head><body><a class="skip-link" href="#main">Skip to content</a><header class="site-header"><div class="nav-wrap"><a class="brand" href="index.html"><img src="media/joystick-icon.png" alt="" width="25" height="25" onerror="this.hidden=true"><span>Harrison Floyd<span class="brand-dot">.</span></span></a><nav aria-label="Main navigation"><a href="index.html#projects" aria-current="page">Work</a><a href="about.html">About</a><a href="resume.html">Résumé</a></nav><button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch color theme"><span class="theme-icon" aria-hidden="true">◐</span><span class="theme-label">Dark mode</span></button></div></header><main id="main"><div class="page-heading"><a class="back-link" href="index.html#projects">← All projects</a><p class="eyebrow">Cloud · Texas Inventionworks</p><h1>AWS Infrastructure<span class="brand-dot">.</span></h1><p class="page-summary">Training records to equipment access, synced automatically.</p></div><section class="project-section" id="aws"><div class="col"><div class="panel project-panel">
-        <p class="project-context">Python · AWS Lambda · DynamoDB &amp; AppSync · REST API integration · Workflow automation</p>
-        <div class="project-columns"><div class="project-copy"><div class="field">
-          <h4>The system</h4>
-          <ul>
-            <li>Automated training-synchronization backend that bridges Fabman, UT Canvas, AWS AppSync, and DynamoDB to streamline how staff verify training completion and manage equipment access for thousands of makerspace users.</li>
-            <li>Built on top of several Python-based Lambdas, the system regularly updates NoSQL databases with updated training information provided by Canvas quizzes, sent through AWS to a third-party database, Fabman.</li>
-            <li>Fabman then provides physical boxes known as Machine Access Control (MAC) boxes, which ensure a given machine is off until a trained person scans into it.</li>
-          </ul>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>AWS Infrastructure — Cameron Cox</title>
+  <meta name="description"
+    content="AWS Infrastructure. Game development, robotics, and cloud systems by Cameron Cox.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="media/joystick-icon.png" type="image/png">
+  <link rel="stylesheet" href="assets/style.css">
+  <script>try { document.documentElement.dataset.theme = localStorage.getItem('hf-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') } catch (e) { document.documentElement.dataset.theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light' }</script>
+  <script src="assets/site.js" defer></script>
+</head>
+
+<body><a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="nav-wrap"><a class="brand" href="index.html"><img src="media/joystick-icon.png" alt="" width="25"
+          height="25" onerror="this.hidden=true"><span>Cameron Cox<span class="brand-dot">.</span></span></a>
+      <nav aria-label="Main navigation"><a href="index.html#projects" aria-current="page">Work</a><a
+          href="about.html">About</a><a href="resume.html">Résumé</a></nav><button class="theme-toggle" id="themeToggle"
+        type="button" aria-label="Switch color theme"><span class="theme-icon" aria-hidden="true">◐</span><span
+          class="theme-label">Dark mode</span></button>
+    </div>
+  </header>
+  <main id="main">
+    <div class="page-heading"><a class="back-link" href="index.html#projects">← All projects</a>
+      <p class="eyebrow">Cloud · Texas Inventionworks</p>
+      <h1>AWS Infrastructure<span class="brand-dot">.</span></h1>
+      <p class="page-summary">Training records to equipment access, synced automatically.</p>
+    </div>
+    <section class="project-section" id="aws">
+      <div class="col">
+        <div class="panel project-panel">
+          <p class="project-context">Python · AWS Lambda · DynamoDB &amp; AppSync · REST API integration · Workflow
+            automation</p>
+          <div class="project-columns">
+            <div class="project-copy">
+              <div class="field">
+                <h4>The system</h4>
+                <ul>
+                  <li>Automated training-synchronization backend that bridges Fabman, UT Canvas, AWS AppSync, and
+                    DynamoDB to streamline how staff verify training completion and manage equipment access for
+                    thousands of makerspace users.</li>
+                  <li>Built on top of several Python-based Lambdas, the system regularly updates NoSQL databases with
+                    updated training information provided by Canvas quizzes, sent through AWS to a third-party database,
+                    Fabman.</li>
+                  <li>Fabman then provides physical boxes known as Machine Access Control (MAC) boxes, which ensure a
+                    given machine is off until a trained person scans into it.</li>
+                </ul>
+              </div>
+              <div class="field">
+                <h4>The impact</h4>
+                <ul>
+                  <li>60+ staff members no longer need to manually verify training completion or update Fabman access
+                    profiles for 5000+ students.</li>
+                  <li>Reduced a multi-hour weekly administrative burden to a fully automated process.</li>
+                  <li>Eliminated common human errors in training assignment and access control.</li>
+                  <li>Standardized training records across two previously disconnected platforms.</li>
+                  <li>Improved safety and compliance by guaranteeing only trained students gain access to specific
+                    makerspace equipment.</li>
+                  <li>Enabled real-time access provisioning — students can unlock resources minutes after completing
+                    training.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="project-visuals">
+              <div class="project-gallery aws-gallery">
+                <figure class="project-media code-media">
+                  <a href="media/CanvasSync.png" target="_blank" rel="noopener"
+                    aria-label="View CanvasSync architecture diagram at full size">
+                    <img src="media/CanvasSync.png" alt="CanvasSync Lambda reference architecture diagram"
+                      loading="lazy" decoding="async" aria-describedby="canvasSyncCaption">
+                  </a>
+                  <figcaption id="canvasSyncCaption">Fig. 1 — Reference architecture: CanvasSync Lambda execution
+                  </figcaption>
+                  <p class="media-link"><a href="media/CanvasSync.png" target="_blank" rel="noopener">View full-size
+                      diagram</a></p>
+                </figure>
+                <figure class="project-media code-media">
+                  <a href="media/TrainingSync.png" target="_blank" rel="noopener"
+                    aria-label="View TrainingSync architecture diagram at full size">
+                    <img src="media/TrainingSync.png" alt="TrainingSync Lambda reference architecture diagram"
+                      loading="lazy" decoding="async" aria-describedby="trainingSyncCaption">
+                  </a>
+                  <figcaption id="trainingSyncCaption">Fig. 2 — Reference architecture: TrainingSync Lambda execution
+                  </figcaption>
+                  <p class="media-link"><a href="media/TrainingSync.png" target="_blank" rel="noopener">View full-size
+                      diagram</a></p>
+                </figure>
+              </div>
+            </div>
+          </div>
+          <details class="project-details">
+            <summary>Lambda execution details</summary>
+            <div class="project-details-body">
+              <div class="project-columns">
+                <div class="project-copy">
+                  <div class="field">
+                    <h4>CanvasSync Lambda</h4>
+                    <ul>
+                      <li>Triggered every 15 minutes by EventBridge</li>
+                      <li>Retrieves API keys from Secrets Manager</li>
+                      <li>Pulls course, module, and quiz-completion data from Canvas</li>
+                      <li>Cross-checks members against DynamoDB</li>
+                      <li>Creates new members in Fabman as needed</li>
+                      <li>Creates new training objects in Fabman if they don't exist</li>
+                      <li>Writes all synced member and training data into DynamoDB via AppSync</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="project-visuals">
+                  <div class="field">
+                    <h4>TrainingSync Lambda</h4>
+                    <ul>
+                      <li>Also runs every 15 minutes</li>
+                      <li>Fetches Fabman members, packages, and training records</li>
+                      <li>Compares each user's Fabman trainings with Canvas completion data</li>
+                      <li>Automatically assigns Fabman trainings when students complete Canvas modules</li>
+                      <li>Automatically assigns Fabman packages (equipment access) when relevant</li>
+                      <li>Updates DynamoDB with all new member-training relationships</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </details>
         </div>
-        <div class="field">
-          <h4>The impact</h4>
-          <ul>
-            <li>60+ staff members no longer need to manually verify training completion or update Fabman access profiles for 5000+ students.</li>
-            <li>Reduced a multi-hour weekly administrative burden to a fully automated process.</li>
-            <li>Eliminated common human errors in training assignment and access control.</li>
-            <li>Standardized training records across two previously disconnected platforms.</li>
-            <li>Improved safety and compliance by guaranteeing only trained students gain access to specific makerspace equipment.</li>
-            <li>Enabled real-time access provisioning — students can unlock resources minutes after completing training.</li>
-          </ul>
-        </div>
-        </div><div class="project-visuals"><div class="project-gallery aws-gallery"><figure class="project-media code-media">
-          <a href="media/CanvasSync.png" target="_blank" rel="noopener" aria-label="View CanvasSync architecture diagram at full size">
-            <img src="media/CanvasSync.png" alt="CanvasSync Lambda reference architecture diagram" loading="lazy" decoding="async" aria-describedby="canvasSyncCaption">
-          </a>
-          <figcaption id="canvasSyncCaption">Fig. 1 — Reference architecture: CanvasSync Lambda execution</figcaption>
-          <p class="media-link"><a href="media/CanvasSync.png" target="_blank" rel="noopener">View full-size diagram</a></p>
-        </figure>
-        <figure class="project-media code-media">
-          <a href="media/TrainingSync.png" target="_blank" rel="noopener" aria-label="View TrainingSync architecture diagram at full size">
-            <img src="media/TrainingSync.png" alt="TrainingSync Lambda reference architecture diagram" loading="lazy" decoding="async" aria-describedby="trainingSyncCaption">
-          </a>
-          <figcaption id="trainingSyncCaption">Fig. 2 — Reference architecture: TrainingSync Lambda execution</figcaption>
-          <p class="media-link"><a href="media/TrainingSync.png" target="_blank" rel="noopener">View full-size diagram</a></p>
-        </figure>
-      </div></div></div><details class="project-details"><summary>Lambda execution details</summary><div class="project-details-body"><div class="project-columns"><div class="project-copy"><div class="field">
-          <h4>CanvasSync Lambda</h4>
-          <ul>
-            <li>Triggered every 15 minutes by EventBridge</li>
-            <li>Retrieves API keys from Secrets Manager</li>
-            <li>Pulls course, module, and quiz-completion data from Canvas</li>
-            <li>Cross-checks members against DynamoDB</li>
-            <li>Creates new members in Fabman as needed</li>
-            <li>Creates new training objects in Fabman if they don't exist</li>
-            <li>Writes all synced member and training data into DynamoDB via AppSync</li>
-          </ul>
-        </div>
-        </div><div class="project-visuals"><div class="field">
-          <h4>TrainingSync Lambda</h4>
-          <ul>
-            <li>Also runs every 15 minutes</li>
-            <li>Fetches Fabman members, packages, and training records</li>
-            <li>Compares each user's Fabman trainings with Canvas completion data</li>
-            <li>Automatically assigns Fabman trainings when students complete Canvas modules</li>
-            <li>Automatically assigns Fabman packages (equipment access) when relevant</li>
-            <li>Updates DynamoDB with all new member-training relationships</li>
-          </ul>
-        </div>
-        </div></div></div></details></div>
-    </div></section><aside class="next-project"><span class="eyebrow">Keep exploring</span><a href="robotics-coursework.html">Robotics Coursework <span aria-hidden="true">→</span></a></aside></main><footer><div><a class="footer-name" href="index.html">Harrison Floyd<span class="brand-dot">.</span></a><p>Games, systems, and things that move.</p></div><div class="footer-links"><a href="mailto:harrisonfloyd05@gmail.com">Email ↗</a><a href="https://www.linkedin.com/in/hfloyd" target="_blank" rel="noopener">LinkedIn ↗</a><span>© <span id="year"></span></span></div></footer><div class="toast" id="toast" role="status" hidden></div></body></html>
+      </div>
+    </section>
+    <aside class="next-project"><span class="eyebrow">Keep exploring</span><a href="robotics-coursework.html">Robotics
+        Coursework <span aria-hidden="true">→</span></a></aside>
+  </main>
+  <footer>
+    <div><a class="footer-name" href="index.html">Cameron Cox<span class="brand-dot">.</span></a>
+      <p>Games, systems, and things that move.</p>
+    </div>
+    <div class="footer-links"><a href="mailto:campatcox@gmail.com">Email ↗</a><a
+        href="https://www.linkedin.com/in/cameron-cox-ut" target="_blank" rel="noopener">LinkedIn ↗</a><span>© <span
+          id="year"></span></span></div>
+  </footer>
+  <div class="toast" id="toast" role="status" hidden></div>
+</body>
+
+</html>

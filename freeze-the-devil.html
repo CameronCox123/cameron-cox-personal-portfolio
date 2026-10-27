@@ -1,109 +1,262 @@
 <!DOCTYPE html>
-<html lang="en"><head><title>Freeze the Devil — Harrison Floyd</title><meta name="description" content="Freeze the Devil. Game development, robotics, and cloud systems by Harrison Floyd."><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="media/joystick-icon.png" type="image/png"><link rel="stylesheet" href="assets/style.css"><script>try{document.documentElement.dataset.theme=localStorage.getItem('hf-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch(e){document.documentElement.dataset.theme=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}</script><script src="assets/site.js" defer></script></head><body><a class="skip-link" href="#main">Skip to content</a><header class="site-header"><div class="nav-wrap"><a class="brand" href="index.html"><img src="media/joystick-icon.png" alt="" width="25" height="25" onerror="this.hidden=true"><span>Harrison Floyd<span class="brand-dot">.</span></span></a><nav aria-label="Main navigation"><a href="index.html#projects" aria-current="page">Work</a><a href="about.html">About</a><a href="resume.html">Résumé</a></nav><button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch color theme"><span class="theme-icon" aria-hidden="true">◐</span><span class="theme-label">Dark mode</span></button></div></header><main id="main"><div class="project-intro"><div class="page-heading"><a class="back-link" href="index.html#projects">← All projects</a><p class="eyebrow">Godot · Game jam</p><h1>Freeze the Devil<span class="brand-dot">.</span></h1><p class="page-summary">Travel through time. Set the chain reaction. Refreeze hell.</p></div><figure class="project-cover"><img src="media/FTD_tile.png" alt="Freeze the Devil project image" decoding="async"></figure></div><section class="project-section" id="freeze-the-devil-content"><div class="col"><div class="panel project-panel" id="freeze-the-devil">
-        <p class="project-context">Godot · GDScript · Timeline state management · Signal-driven gameplay · Bomb chain reactions · Boss mechanics<br>Texas Game Jam 2026 · UT Austin · September 25–27, 2026<br>Godot · Team of three · Jam theme: Chain Reaction</p>
-        <div class="project-actions">
-          <a class="btn" href="https://kemblebee.itch.io/freezethedevil" target="_blank" rel="noopener">Play on itch.io</a>
-          <a class="btn" href="https://youtu.be/TJ-0jGYwcN4" target="_blank" rel="noopener">Watch gameplay demo</a>
-        </div>
-        <div class="project-columns"><div class="project-copy"><div class="field">
-          <h4>The game</h4>
-          <p>A puzzle platformer built over a weekend for Texas Game Jam 2026. You play as a little ice cube descending into hell to refreeze the Devil before he escapes his icy prison and makes hell hot again.</p>
-          <p>A magic kalimba lets you travel between a frozen past and a fiery present. Arrange ice blocks and dynamite in the past, then shift to the present: ice blocks become fire points that ignite bombs. Set up a chain reaction to clear the level and descend deeper into hell.</p>
-        </div>
-        <div class="field">
-          <h4>My contributions</h4>
-          <ul>
-            <li><strong>Player movement:</strong> Designed and implemented a responsive platforming controller for navigating the levels.</li>
-            <li><strong>Time travel and world state:</strong> Implemented a past/present system where changes in the past directly alter the present, while actions in the present leave the past unchanged.</li>
-            <li><strong>Bomb chain reactions:</strong> Built bombs that detonate on contact with flames, detect nearby bombs, and trigger further explosions.</li>
-            <li><strong>Kalimba input and coordination:</strong> Built an instrument that recognizes specific input patterns as songs and coordinates time shifts across the player, level objects, music, and background.</li>
-            <li><strong>Water as a traversal mechanic:</strong> Adapted an existing visual-water tool so water lifts the player in the past, creating a route that disappears in the hot present.</li>
-            <li><strong>Scoring and levels:</strong> Implemented a points manager that persists across level transitions, along with tile mapping.</li>
-            <li><strong>Boss encounter:</strong> Implemented a full boss fight with multiple phases, projectiles, and parries.</li>
-          </ul>
-        </div>
-        </div><div class="project-visuals"><div class="field">
-          <h4>Time travel, music, and chain reactions</h4>
-          <p>The gameplay demonstration shows how playing a kalimba melody changes the timeline and how bomb placement determines whether an explosion chain succeeds. An initial arrangement falls short; a complete chain then demonstrates the solution.</p>
-        </div>
-        <figure class="project-media">
-          <video id="freezeTimeDemo" controls playsinline preload="metadata" src="media/Freeze-The-Devil-Time-Shift-Demo.mp4" aria-label="Time shifting and bomb chains · approximately 1:30" aria-describedby="freezeTimeDemoCaption">
-            Your browser does not support embedded video.
-          </video>
-          <figcaption id="freezeTimeDemoCaption"><strong>Time shifting and bomb chains · approximately 1:30</strong> — A short chain fails to reach the next bomb, followed by a successful chain after the arrangement is changed.</figcaption>
-          <p class="media-link"><a href="media/Freeze-The-Devil-Time-Shift-Demo.mp4" target="_blank" rel="noopener">Open video directly</a></p>
-          <p class="media-error" role="status" hidden></p>
-        </figure>
-        </div></div><details class="project-details"><summary>Code showcase: timelines, kalimba input, and bomb chains</summary><div class="project-details-body"><div class="field">
-          <h4>The central technical challenge</h4>
-          <p>The two timelines need to preserve different world states while maintaining a one-way relationship: changing the past changes the present, but changing the present cannot rewrite the past. That rule connects object placement, fire, bomb explosions, and traversal into a single puzzle system.</p>
-          <p>The kalimba serves as the player's interface to this system, coordinating the gameplay and presentation changes when a song triggers a time shift.</p>
-        </div>
-        <div class="project-gallery"><figure class="project-media code-media freeze-media">
-          <a href="media/freeze-the-devil-time-state.png" target="_blank" rel="noopener" aria-label="View time-state code at full size">
-            <img src="media/freeze-the-devil-time-state.png" alt="Freeze the Devil: time-state code" loading="lazy" decoding="async">
-          </a>
-          <figcaption><strong>Time-state code</strong> — Stores past and present positions separately. Returning to the past preserves the present position; changing the past beyond a movement tolerance resets the present position to match. A signal reports whether the past changed.</figcaption>
-          <p class="media-link"><a href="media/freeze-the-devil-time-state.png" target="_blank" rel="noopener">View full-size image</a></p>
-        </figure>
-        <figure class="project-media code-media freeze-media">
-          <a href="media/freeze-the-devil-kalimba-songs.png" target="_blank" rel="noopener" aria-label="View kalimba song definitions at full size">
-            <img src="media/freeze-the-devil-kalimba-songs.png" alt="Freeze the Devil: kalimba song definitions" loading="lazy" decoding="async">
-          </a>
-          <figcaption><strong>Kalimba song definitions</strong> — Five-note sequences define the songs for the past, present, faster time, and normal time.</figcaption>
-          <p class="media-link"><a href="media/freeze-the-devil-kalimba-songs.png" target="_blank" rel="noopener">View full-size image</a></p>
-        </figure>
-        <figure class="project-media code-media freeze-media">
-          <a href="media/freeze-the-devil-kalimba-input.png" target="_blank" rel="noopener" aria-label="View kalimba input and signals at full size">
-            <img src="media/freeze-the-devil-kalimba-input.png" alt="Freeze the Devil: kalimba input and signals" loading="lazy" decoding="async">
-          </a>
-          <figcaption><strong>Kalimba input and signals</strong> — Collects directional notes while the instrument button is held, matches the sequence against the songs, and emits the corresponding time-shift or speed signal before clearing the input.</figcaption>
-          <p class="media-link"><a href="media/freeze-the-devil-kalimba-input.png" target="_blank" rel="noopener">View full-size image</a></p>
-        </figure>
-        </div><div class="field">
-          <h4>Bomb behavior and scene structure</h4>
-          <p>The explosion method and bomb scene show how detection areas, object state, and deferred calls work together to produce a chain reaction without repeatedly triggering the same bomb.</p>
-        </div>
-        <div class="project-gallery"><figure class="project-media code-media freeze-media">
-          <a href="media/freeze-the-devil-bomb-explode.png" target="_blank" rel="noopener" aria-label="View bomb explosions and chain reactions at full size">
-            <img src="media/freeze-the-devil-bomb-explode.png" alt="Freeze the Devil: bomb explosions and chain reactions" loading="lazy" decoding="async">
-          </a>
-          <figcaption><strong>Bomb explosions and chain reactions</strong> — An exploded guard prevents repeated detonations. The bomb freezes, disables its collision, hides its sprite, and plays its sound before checking overlapping bodies. Deferred explode calls propagate the chain to nearby bombs and other supported objects.</figcaption>
-          <p class="media-link"><a href="media/freeze-the-devil-bomb-explode.png" target="_blank" rel="noopener">View full-size image</a></p>
-        </figure>
-        <figure class="project-media code-media freeze-media">
-          <a href="media/freeze-the-devil-bomb-scene.png" target="_blank" rel="noopener" aria-label="View bomb scene and detection areas at full size">
-            <img src="media/freeze-the-devil-bomb-scene.png" alt="Freeze the Devil: bomb scene and detection areas" loading="lazy" decoding="async">
-          </a>
-          <figcaption><strong>Bomb scene and detection areas</strong> — The scene separates the smaller trigger area from the larger circular explosion area, alongside the physical collision shape, sprites, audio player, and time-state component.</figcaption>
-          <p class="media-link"><a href="media/freeze-the-devil-bomb-scene.png" target="_blank" rel="noopener">View full-size image</a></p>
-        </figure>
-        </div></div></details><details class="project-details"><summary>Boss demonstration and planned improvements</summary><div class="project-details-body"><div class="project-columns"><div class="project-copy"><div class="field">
-          <h4>Boss encounter — current jam build</h4>
-          <p>The boss demonstration shows a quick finish: one parry and two dynamite explosions defeat the boss through both phases. This also exposes a balancing issue in the jam build: damage can bypass the intended second-phase encounter.</p>
-        </div>
-        <div class="field">
-          <h4>What I would improve next</h4>
-          <p>The jam build demonstrates the core systems, but playtesting exposed several areas I want to refine:</p>
-          <ul>
-            <li><strong>Block movement and puzzle recovery:</strong> Blocks can stick to the ground and become unpushable from certain directions. I would investigate collision clearance and ground friction, test a small floor buffer, and add a pull interaction so players have more ways to recover a block's position.</li>
-            <li><strong>Audio lifecycle:</strong> Some voice lines replay when a level restarts after death. I would centralize shared audio in a persistent manager and track which voice lines have already played, separating replayable sound effects from one-time dialogue.</li>
-            <li><strong>Boss readability and progression:</strong> The second-phase attack needs a visible cue. I would add a clear visual telegraph, revise damage and phase-transition handling so two dynamite explosions cannot bypass the second phase, and refine parry timing and feedback.</li>
-          </ul>
-        </div>
-        </div><div class="project-visuals"><figure class="project-media">
-          <video id="freezeBossDemo" controls playsinline preload="metadata" src="media/Freeze-The-Devil-Boss-Demo.mp4" aria-label="Boss fight: parry and dynamite" aria-describedby="freezeBossDemoCaption">
-            Your browser does not support embedded video.
-          </video>
-          <figcaption id="freezeBossDemoCaption"><strong>Boss fight: parry and dynamite</strong> — A short run demonstrating projectile parrying and explosive damage, including the current phase-skip issue.</figcaption>
-          <p class="media-link"><a href="media/Freeze-The-Devil-Boss-Demo.mp4" target="_blank" rel="noopener">Open video directly</a></p>
-          <p class="media-error" role="status" hidden></p>
-        </figure>
-        </div></div></div></details><details class="project-details"><summary>Team and asset credits</summary><div class="project-details-body"><div class="field">
-          <h4>Team and asset credits</h4>
-          <p>Created with Kemblebee and Tokani as Team Crowbar. My contributions above focus on gameplay systems; full team and external-asset credits are available on the <a href="https://itch.io/jam/texas-game-jam-2026/rate/5057981" target="_blank" rel="noopener">jam submission</a>.</p>
-          <p>The water mechanic builds on a water-class base by Jesse Madyson (Mostly Mad Productions), which I adapted for platforming and time travel.</p>
-        </div>
-      </div></details></div>
+<html lang="en">
 
-    </div></section><aside class="next-project"><span class="eyebrow">Keep exploring</span><a href="smaller-unreal-projects.html">Smaller Unreal Projects <span aria-hidden="true">→</span></a></aside></main><footer><div><a class="footer-name" href="index.html">Harrison Floyd<span class="brand-dot">.</span></a><p>Games, systems, and things that move.</p></div><div class="footer-links"><a href="mailto:harrisonfloyd05@gmail.com">Email ↗</a><a href="https://www.linkedin.com/in/hfloyd" target="_blank" rel="noopener">LinkedIn ↗</a><span>© <span id="year"></span></span></div></footer><div class="toast" id="toast" role="status" hidden></div></body></html>
+<head>
+  <title>Freeze the Devil — Cameron Cox</title>
+  <meta name="description" content="Freeze the Devil. Game development, robotics, and cloud systems by Cameron Cox.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="media/joystick-icon.png" type="image/png">
+  <link rel="stylesheet" href="assets/style.css">
+  <script>try { document.documentElement.dataset.theme = localStorage.getItem('hf-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') } catch (e) { document.documentElement.dataset.theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light' }</script>
+  <script src="assets/site.js" defer></script>
+</head>
+
+<body><a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="nav-wrap"><a class="brand" href="index.html"><img src="media/joystick-icon.png" alt="" width="25"
+          height="25" onerror="this.hidden=true"><span>Cameron Cox<span class="brand-dot">.</span></span></a>
+      <nav aria-label="Main navigation"><a href="index.html#projects" aria-current="page">Work</a><a
+          href="about.html">About</a><a href="resume.html">Résumé</a></nav><button class="theme-toggle" id="themeToggle"
+        type="button" aria-label="Switch color theme"><span class="theme-icon" aria-hidden="true">◐</span><span
+          class="theme-label">Dark mode</span></button>
+    </div>
+  </header>
+  <main id="main">
+    <div class="project-intro">
+      <div class="page-heading"><a class="back-link" href="index.html#projects">← All projects</a>
+        <p class="eyebrow">Godot · Game jam</p>
+        <h1>Freeze the Devil<span class="brand-dot">.</span></h1>
+        <p class="page-summary">Travel through time. Set the chain reaction. Refreeze hell.</p>
+      </div>
+      <figure class="project-cover"><img src="media/FTD_tile.png" alt="Freeze the Devil project image" decoding="async">
+      </figure>
+    </div>
+    <section class="project-section" id="freeze-the-devil-content">
+      <div class="col">
+        <div class="panel project-panel" id="freeze-the-devil">
+          <p class="project-context">Godot · GDScript · Timeline state management · Signal-driven gameplay · Bomb chain
+            reactions · Boss mechanics<br>Texas Game Jam 2026 · UT Austin · September 25–27, 2026<br>Godot · Team of
+            three · Jam theme: Chain Reaction</p>
+          <div class="project-actions">
+            <a class="btn" href="https://kemblebee.itch.io/freezethedevil" target="_blank" rel="noopener">Play on
+              itch.io</a>
+            <a class="btn" href="https://youtu.be/TJ-0jGYwcN4" target="_blank" rel="noopener">Watch gameplay demo</a>
+          </div>
+          <div class="project-columns">
+            <div class="project-copy">
+              <div class="field">
+                <h4>The game</h4>
+                <p>A puzzle platformer built over a weekend for Texas Game Jam 2026. You play as a little ice cube
+                  descending into hell to refreeze the Devil before he escapes his icy prison and makes hell hot again.
+                </p>
+                <p>A magic kalimba lets you travel between a frozen past and a fiery present. Arrange ice blocks and
+                  dynamite in the past, then shift to the present: ice blocks become fire points that ignite bombs. Set
+                  up a chain reaction to clear the level and descend deeper into hell.</p>
+              </div>
+              <div class="field">
+                <h4>My contributions</h4>
+                <ul>
+                  <li><strong>Player movement:</strong> Designed and implemented a responsive platforming controller for
+                    navigating the levels.</li>
+                  <li><strong>Time travel and world state:</strong> Implemented a past/present system where changes in
+                    the past directly alter the present, while actions in the present leave the past unchanged.</li>
+                  <li><strong>Bomb chain reactions:</strong> Built bombs that detonate on contact with flames, detect
+                    nearby bombs, and trigger further explosions.</li>
+                  <li><strong>Kalimba input and coordination:</strong> Built an instrument that recognizes specific
+                    input patterns as songs and coordinates time shifts across the player, level objects, music, and
+                    background.</li>
+                  <li><strong>Water as a traversal mechanic:</strong> Adapted an existing visual-water tool so water
+                    lifts the player in the past, creating a route that disappears in the hot present.</li>
+                  <li><strong>Scoring and levels:</strong> Implemented a points manager that persists across level
+                    transitions, along with tile mapping.</li>
+                  <li><strong>Boss encounter:</strong> Implemented a full boss fight with multiple phases, projectiles,
+                    and parries.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="project-visuals">
+              <div class="field">
+                <h4>Time travel, music, and chain reactions</h4>
+                <p>The gameplay demonstration shows how playing a kalimba melody changes the timeline and how bomb
+                  placement determines whether an explosion chain succeeds. An initial arrangement falls short; a
+                  complete chain then demonstrates the solution.</p>
+              </div>
+              <figure class="project-media">
+                <video id="freezeTimeDemo" controls playsinline preload="metadata"
+                  src="media/Freeze-The-Devil-Time-Shift-Demo.mp4"
+                  aria-label="Time shifting and bomb chains · approximately 1:30"
+                  aria-describedby="freezeTimeDemoCaption">
+                  Your browser does not support embedded video.
+                </video>
+                <figcaption id="freezeTimeDemoCaption"><strong>Time shifting and bomb chains · approximately
+                    1:30</strong> — A short chain fails to reach the next bomb, followed by a successful chain after the
+                  arrangement is changed.</figcaption>
+                <p class="media-link"><a href="media/Freeze-The-Devil-Time-Shift-Demo.mp4" target="_blank"
+                    rel="noopener">Open video directly</a></p>
+                <p class="media-error" role="status" hidden></p>
+              </figure>
+            </div>
+          </div>
+          <details class="project-details">
+            <summary>Code showcase: timelines, kalimba input, and bomb chains</summary>
+            <div class="project-details-body">
+              <div class="field">
+                <h4>The central technical challenge</h4>
+                <p>The two timelines need to preserve different world states while maintaining a one-way relationship:
+                  changing the past changes the present, but changing the present cannot rewrite the past. That rule
+                  connects object placement, fire, bomb explosions, and traversal into a single puzzle system.</p>
+                <p>The kalimba serves as the player's interface to this system, coordinating the gameplay and
+                  presentation changes when a song triggers a time shift.</p>
+              </div>
+              <div class="project-gallery">
+                <figure class="project-media code-media freeze-media">
+                  <a href="media/freeze-the-devil-time-state.png" target="_blank" rel="noopener"
+                    aria-label="View time-state code at full size">
+                    <img src="media/freeze-the-devil-time-state.png" alt="Freeze the Devil: time-state code"
+                      loading="lazy" decoding="async">
+                  </a>
+                  <figcaption><strong>Time-state code</strong> — Stores past and present positions separately. Returning
+                    to the past preserves the present position; changing the past beyond a movement tolerance resets the
+                    present position to match. A signal reports whether the past changed.</figcaption>
+                  <p class="media-link"><a href="media/freeze-the-devil-time-state.png" target="_blank"
+                      rel="noopener">View full-size image</a></p>
+                </figure>
+                <figure class="project-media code-media freeze-media">
+                  <a href="media/freeze-the-devil-kalimba-songs.png" target="_blank" rel="noopener"
+                    aria-label="View kalimba song definitions at full size">
+                    <img src="media/freeze-the-devil-kalimba-songs.png" alt="Freeze the Devil: kalimba song definitions"
+                      loading="lazy" decoding="async">
+                  </a>
+                  <figcaption><strong>Kalimba song definitions</strong> — Five-note sequences define the songs for the
+                    past, present, faster time, and normal time.</figcaption>
+                  <p class="media-link"><a href="media/freeze-the-devil-kalimba-songs.png" target="_blank"
+                      rel="noopener">View full-size image</a></p>
+                </figure>
+                <figure class="project-media code-media freeze-media">
+                  <a href="media/freeze-the-devil-kalimba-input.png" target="_blank" rel="noopener"
+                    aria-label="View kalimba input and signals at full size">
+                    <img src="media/freeze-the-devil-kalimba-input.png"
+                      alt="Freeze the Devil: kalimba input and signals" loading="lazy" decoding="async">
+                  </a>
+                  <figcaption><strong>Kalimba input and signals</strong> — Collects directional notes while the
+                    instrument button is held, matches the sequence against the songs, and emits the corresponding
+                    time-shift or speed signal before clearing the input.</figcaption>
+                  <p class="media-link"><a href="media/freeze-the-devil-kalimba-input.png" target="_blank"
+                      rel="noopener">View full-size image</a></p>
+                </figure>
+              </div>
+              <div class="field">
+                <h4>Bomb behavior and scene structure</h4>
+                <p>The explosion method and bomb scene show how detection areas, object state, and deferred calls work
+                  together to produce a chain reaction without repeatedly triggering the same bomb.</p>
+              </div>
+              <div class="project-gallery">
+                <figure class="project-media code-media freeze-media">
+                  <a href="media/freeze-the-devil-bomb-explode.png" target="_blank" rel="noopener"
+                    aria-label="View bomb explosions and chain reactions at full size">
+                    <img src="media/freeze-the-devil-bomb-explode.png"
+                      alt="Freeze the Devil: bomb explosions and chain reactions" loading="lazy" decoding="async">
+                  </a>
+                  <figcaption><strong>Bomb explosions and chain reactions</strong> — An exploded guard prevents repeated
+                    detonations. The bomb freezes, disables its collision, hides its sprite, and plays its sound before
+                    checking overlapping bodies. Deferred explode calls propagate the chain to nearby bombs and other
+                    supported objects.</figcaption>
+                  <p class="media-link"><a href="media/freeze-the-devil-bomb-explode.png" target="_blank"
+                      rel="noopener">View full-size image</a></p>
+                </figure>
+                <figure class="project-media code-media freeze-media">
+                  <a href="media/freeze-the-devil-bomb-scene.png" target="_blank" rel="noopener"
+                    aria-label="View bomb scene and detection areas at full size">
+                    <img src="media/freeze-the-devil-bomb-scene.png"
+                      alt="Freeze the Devil: bomb scene and detection areas" loading="lazy" decoding="async">
+                  </a>
+                  <figcaption><strong>Bomb scene and detection areas</strong> — The scene separates the smaller trigger
+                    area from the larger circular explosion area, alongside the physical collision shape, sprites, audio
+                    player, and time-state component.</figcaption>
+                  <p class="media-link"><a href="media/freeze-the-devil-bomb-scene.png" target="_blank"
+                      rel="noopener">View full-size image</a></p>
+                </figure>
+              </div>
+            </div>
+          </details>
+          <details class="project-details">
+            <summary>Boss demonstration and planned improvements</summary>
+            <div class="project-details-body">
+              <div class="project-columns">
+                <div class="project-copy">
+                  <div class="field">
+                    <h4>Boss encounter — current jam build</h4>
+                    <p>The boss demonstration shows a quick finish: one parry and two dynamite explosions defeat the
+                      boss through both phases. This also exposes a balancing issue in the jam build: damage can bypass
+                      the intended second-phase encounter.</p>
+                  </div>
+                  <div class="field">
+                    <h4>What I would improve next</h4>
+                    <p>The jam build demonstrates the core systems, but playtesting exposed several areas I want to
+                      refine:</p>
+                    <ul>
+                      <li><strong>Block movement and puzzle recovery:</strong> Blocks can stick to the ground and become
+                        unpushable from certain directions. I would investigate collision clearance and ground friction,
+                        test a small floor buffer, and add a pull interaction so players have more ways to recover a
+                        block's position.</li>
+                      <li><strong>Audio lifecycle:</strong> Some voice lines replay when a level restarts after death. I
+                        would centralize shared audio in a persistent manager and track which voice lines have already
+                        played, separating replayable sound effects from one-time dialogue.</li>
+                      <li><strong>Boss readability and progression:</strong> The second-phase attack needs a visible
+                        cue. I would add a clear visual telegraph, revise damage and phase-transition handling so two
+                        dynamite explosions cannot bypass the second phase, and refine parry timing and feedback.</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="project-visuals">
+                  <figure class="project-media">
+                    <video id="freezeBossDemo" controls playsinline preload="metadata"
+                      src="media/Freeze-The-Devil-Boss-Demo.mp4" aria-label="Boss fight: parry and dynamite"
+                      aria-describedby="freezeBossDemoCaption">
+                      Your browser does not support embedded video.
+                    </video>
+                    <figcaption id="freezeBossDemoCaption"><strong>Boss fight: parry and dynamite</strong> — A short run
+                      demonstrating projectile parrying and explosive damage, including the current phase-skip issue.
+                    </figcaption>
+                    <p class="media-link"><a href="media/Freeze-The-Devil-Boss-Demo.mp4" target="_blank"
+                        rel="noopener">Open video directly</a></p>
+                    <p class="media-error" role="status" hidden></p>
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </details>
+          <details class="project-details">
+            <summary>Team and asset credits</summary>
+            <div class="project-details-body">
+              <div class="field">
+                <h4>Team and asset credits</h4>
+                <p>Created with Kemblebee and Tokani as Team Crowbar. My contributions above focus on gameplay systems;
+                  full team and external-asset credits are available on the <a
+                    href="https://itch.io/jam/texas-game-jam-2026/rate/5057981" target="_blank" rel="noopener">jam
+                    submission</a>.</p>
+                <p>The water mechanic builds on a water-class base by Jesse Madyson (Mostly Mad Productions), which I
+                  adapted for platforming and time travel.</p>
+              </div>
+            </div>
+          </details>
+        </div>
+
+      </div>
+    </section>
+    <aside class="next-project"><span class="eyebrow">Keep exploring</span><a
+        href="smaller-unreal-projects.html">Smaller Unreal Projects <span aria-hidden="true">→</span></a></aside>
+  </main>
+  <footer>
+    <div><a class="footer-name" href="index.html">Cameron Cox<span class="brand-dot">.</span></a>
+      <p>Games, systems, and things that move.</p>
+    </div>
+    <div class="footer-links"><a href="mailto:campatcox@gmail.com">Email ↗</a><a
+        href="https://www.linkedin.com/in/cameron-cox-ut" target="_blank" rel="noopener">LinkedIn ↗</a><span>© <span
+          id="year"></span></span></div>
+  </footer>
+  <div class="toast" id="toast" role="status" hidden></div>
+</body>
+
+</html>

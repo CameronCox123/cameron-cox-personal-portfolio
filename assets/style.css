@@ -692,6 +692,17 @@ main {
     line-height: 1.75
 }
 
+.project-visuals {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    align-items: start
+}
+
+.project-visuals>*+* {
+    margin-top: 0
+}
+
 .field {
     margin-top: 1.4rem
 }
@@ -712,10 +723,6 @@ main {
 .project-copy>.field+.field {
     border-top: 1px solid var(--line);
     padding-top: 1.2rem
-}
-
-.project-visuals>*+* {
-    margin-top: 1rem
 }
 
 .project-media {
@@ -766,6 +773,15 @@ main {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1rem;
     align-items: start
+}
+
+.trireme-gallery {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-top: 1.5rem
+}
+
+.project-panel > .project-gallery.trireme-gallery {
+    margin-top: 1.5rem
 }
 
 .project-gallery img {
